@@ -14,7 +14,7 @@ function Data() {
     const [title, setTitle] = useState('Testing')
     const [desc, setDesc] = useState('YADA YADA YADA')
     const [date, setDate] = useState('2019-07-17')
-    const [mediaUrl, setMediaUrl] = useState('https://apod.nasa.gov/apod/image/1203/angrysun_friedman_960.jpg')
+    const [mediaUrl, setMediaUrl] = useState('Image is Loading')
     const [mediaType, setMediaType] = useState('photo')
 
     const currentDate = new Date();
@@ -48,7 +48,7 @@ function Data() {
             <Title title={title}/>
             <Media mediaUrl={mediaUrl} mediaType={mediaType}/>
             <Description desc={desc} date={date}/>
-            <DropdownContainer />
+            <DropdownContainer apiYear={apiYear} setApiYear={setApiYear}/>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React from "react"
 
 const YearOptions = ({year}) => {
   return (
-    <option key={year}>
+    <option key={year} value={year}>
       {year}
     </option>
   )

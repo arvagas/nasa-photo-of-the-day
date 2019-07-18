@@ -1,12 +1,12 @@
-import React,{useState} from 'react'
+import React from 'react'
 import {dropdownyear} from '../DropdownData'
 import YearOptions from './YearOptions'
 
-const DropdownYear = () => {
+const DropdownYear = ({apiYear, setApiYear}) => {
     return (
-        <select>
+        <select value={apiYear} onChange={event => setApiYear(event.target.value)}>
             {dropdownyear.map(year=> (
-                <YearOptions year={year}/>))
+                <YearOptions year={year} />))
             }
         </select>
     )
