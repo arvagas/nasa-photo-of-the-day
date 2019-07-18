@@ -11,9 +11,9 @@ function Data() {
     // Values related to NASA api
     const nasaApi = 'https://api.nasa.gov/planetary/apod?api_key=cySSy2EuIo1USEmHFXesxMwVk4UhxzDBNvn07ESW'
 
-    const [title, setTitle] = useState('Testing')
-    const [desc, setDesc] = useState('YADA YADA YADA')
-    const [date, setDate] = useState('2019-07-17')
+    const [title, setTitle] = useState('Loading...')
+    const [desc, setDesc] = useState('Loading...')
+    const [date, setDate] = useState('????-??-??')
     const [mediaUrl, setMediaUrl] = useState('Image is Loading')
     const [mediaType, setMediaType] = useState('photo')
 
@@ -45,10 +45,15 @@ function Data() {
 
     return (
         <div>
-            <Title title={title}/>
-            <Media mediaUrl={mediaUrl} mediaType={mediaType}/>
-            <Description desc={desc} date={date}/>
             <DropdownContainer apiYear={apiYear} setApiYear={setApiYear} apiMonth={apiMonth} setApiMonth={setApiMonth} apiDay={apiDay} setApiDay={setApiDay}/>
+
+            <div className='card'>
+                <Title title={title}/>
+                <div className={(mediaType === 'image') ? 'image-container' : 'video-container'}>
+                    <Media mediaUrl={mediaUrl} mediaType={mediaType}/>
+                </div>
+                <Description desc={desc} date={date}/>
+            </div>
         </div>
     )
 }

@@ -32,9 +32,59 @@
   }
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  max-width: 1000px;
+  border: solid black 1px;
+  margin: 0 5% 2%;
+}
+
+.image-container {
+  align-self: center;
+  max-width: 800px;
+  margin: 0 5%;
+}
+
+.video-container {
+  align-self: center;
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 35px;
+  margin: 0 5%;
+  height: 0;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+}
+
+.video {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  margin: 5%;
+  text-align: left;
+}
+
+.date {
+  font-weight: bold;
+}
+
 .dropdown-container {
   display: flex;
   justify-content: center;
+  margin-bottom: 2%;
 }
 
 .dropdown-year,
