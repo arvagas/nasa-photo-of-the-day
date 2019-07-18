@@ -2,16 +2,20 @@ import React from 'react'
 import DropdownYear from './Year/DropdownYear'
 import DropdownDay from './Day/DropdownDay'
 import DropdownMonth from './Month/DropdownMonth'
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const DropdownHouse = styled.div`
     display: flex;
     justify-content: center;
-    margin-bottom: 2%;
+    margin: 2% 0;
 `
 
 const DropdownIndivContainer = styled.div`
     margin: 0 15px;
+
+    h3 {
+        margin: 0;
+    }
 `
 
 const DropdownContainer = ({apiYear, setApiYear, apiMonth, setApiMonth, apiDay, setApiDay}) => {  

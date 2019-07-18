@@ -2,13 +2,13 @@ import React,{useState, useEffect} from 'react'
 import axios from 'axios'
 
 // Import components
+import Control from './components/Control'
 import Title from './components/Title'
 import Media from './components/Media'
 import Description from './components/Content/Description'
-import DropdownContainer from './components/Dropdown/DropdownContainer'
 import StylesCard from './styles/StylesCard'
 
-function Data() {
+function Data({theme, toggleTheme}) {
     // Values related to NASA api
     const nasaApi = 'https://api.nasa.gov/planetary/apod?api_key=cySSy2EuIo1USEmHFXesxMwVk4UhxzDBNvn07ESW'
 
@@ -52,12 +52,14 @@ function Data() {
 
     return (
         <div>
-            <DropdownContainer apiYear={apiYear} setApiYear={setApiYear} apiMonth={apiMonth} setApiMonth={setApiMonth} apiDay={apiDay} setApiDay={setApiDay}/>
+            <Control apiYear={apiYear} setApiYear={setApiYear} apiMonth={apiMonth} setApiMonth={setApiMonth} apiDay={apiDay} setApiDay={setApiDay} theme={theme} toggleTheme={toggleTheme}/>
 
-            <StylesCard>
+            <StylesCard style={{
+                borderColor: theme === 'night' ? '#fff' : '#000',
+            }}>
                 <Title title={title}/>
                 <div className={(mediaType === 'image') ? 'image-container' : 'video-container'}>
-                    <Media mediaUrl={mediaUrl} mediaType={mediaType}/>
+                    <Media mediaUrl={mediaUrl} mediaType={mediaType} theme={theme}/>
                 </div>
                 <Description desc={desc} date={date} origLink={origLink}/>
             </StylesCard>
