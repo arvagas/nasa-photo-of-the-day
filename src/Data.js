@@ -16,6 +16,7 @@ function Data() {
     const [date, setDate] = useState('????-??-??')
     const [mediaUrl, setMediaUrl] = useState('Image is Loading')
     const [mediaType, setMediaType] = useState('photo')
+    const [origLink, setOrigLink] = useState('linkdate')
 
     const currentDate = new Date();
     const [apiYear, setApiYear] = useState(currentDate.getFullYear())
@@ -37,6 +38,11 @@ function Data() {
                 setDate(nasaDate)
                 setMediaUrl(nasaMediaUrl)
                 setMediaType(nasaMediaType)
+
+                let shortYear = `${apiYear}`.slice(-2)
+                let ddMonth = (apiMonth < 10) ? `0${apiMonth}` : apiMonth
+                let ddDay = (apiDay < 10) ? `0${apiDay}` : apiDay
+                setOrigLink(`${shortYear}${ddMonth}${ddDay}`)
             })
             .catch(error => {
                 console.log('API retrieval failed:', error)
@@ -52,7 +58,7 @@ function Data() {
                 <div className={(mediaType === 'image') ? 'image-container' : 'video-container'}>
                     <Media mediaUrl={mediaUrl} mediaType={mediaType}/>
                 </div>
-                <Description desc={desc} date={date}/>
+                <Description desc={desc} date={date} origLink={origLink}/>
             </div>
         </div>
     )
