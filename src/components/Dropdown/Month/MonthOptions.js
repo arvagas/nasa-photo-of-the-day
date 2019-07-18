@@ -2,7 +2,7 @@ import React from "react"
 
 const MonthOptions = ({month}) => {
   return (
-    <option key={month}>
+    <option key={month} value={month}>
       {month}
     </option>
   )

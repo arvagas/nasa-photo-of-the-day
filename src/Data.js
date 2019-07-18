@@ -48,7 +48,7 @@ function Data() {
             <Title title={title}/>
             <Media mediaUrl={mediaUrl} mediaType={mediaType}/>
             <Description desc={desc} date={date}/>
-            <DropdownContainer apiYear={apiYear} setApiYear={setApiYear}/>
+            <DropdownContainer apiYear={apiYear} setApiYear={setApiYear} apiMonth={apiMonth} setApiMonth={setApiMonth}/>
         </div>
     )
 }
