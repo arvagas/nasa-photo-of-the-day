@@ -31,3 +31,14 @@
     transform: rotate(360deg);
   }
 }
+
+.dropdown-container {
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown-year,
+.dropdown-day,
+.dropdown-month {
+  margin: 0 15px;
+} 

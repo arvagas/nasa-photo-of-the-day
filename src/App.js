@@ -6,6 +6,7 @@ import axios from 'axios'
 import Title from './components/Title'
 import Media from './components/Media'
 import Description from './components/content/Description'
+import DropdownContainer from './components/Dropdown/DropdownContainer'
 
 function App() {
   // Values related to NASA api
@@ -21,7 +22,7 @@ function App() {
   const [mediaType, setMediaType] = useState('photo')
 
   useEffect(() => {
-    axios.get(`${nasaApi}`)
+    axios.get(`${nasaApi}&date=${apiYear}-${apiMonth}-${apiDay}`)
       .then(response => {
         console.log('NASA Photo API online:', response)
         const nasaTitle = response.data.title
@@ -47,6 +48,7 @@ function App() {
         <Title title={title}/>
         <Media mediaUrl={mediaUrl} mediaType={mediaType}/>
         <Description desc={desc} date={date}/>
+        <DropdownContainer />
       </div>
     </div>
   )
