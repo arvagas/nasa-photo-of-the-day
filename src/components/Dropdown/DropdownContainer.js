@@ -2,25 +2,36 @@ import React from 'react'
 import DropdownYear from './Year/DropdownYear'
 import DropdownDay from './Day/DropdownDay'
 import DropdownMonth from './Month/DropdownMonth'
+import styled from "styled-components"
+
+const DropdownHouse = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
+`
+
+const DropdownIndivContainer = styled.div`
+    margin: 0 15px;
+`
 
 const DropdownContainer = ({apiYear, setApiYear, apiMonth, setApiMonth, apiDay, setApiDay}) => {  
     return (
-        <div className='dropdown-container'>
-            <div className='dropdown-year'>
+        <DropdownHouse>
+            <DropdownIndivContainer>
                 <h3>Year</h3>
                 <DropdownYear apiYear={apiYear} setApiYear={setApiYear}/>
-            </div>
+            </DropdownIndivContainer>
 
-            <div className='dropdown-month'>
+            <DropdownIndivContainer>
                 <h3>Month</h3>
                 <DropdownMonth apiMonth={apiMonth} setApiMonth={setApiMonth}/>
-            </div>
+            </DropdownIndivContainer>
 
-            <div className='dropdown-day'>
+            <DropdownIndivContainer>
                 <h3>Day</h3>
                 <DropdownDay apiDay={apiDay} setApiDay={setApiDay}/>
-            </div>
-        </div>
+            </DropdownIndivContainer>
+        </DropdownHouse>
     )
 }
 

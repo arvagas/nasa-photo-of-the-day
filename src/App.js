@@ -1,6 +1,5 @@
 import React, {lazy, Suspense} from "react";
 import "./App.css";
-import styled from "styled-components"
 
 // Import components
 const Data = lazy(() => import('./Data'))

@@ -4,8 +4,9 @@ import axios from 'axios'
 // Import components
 import Title from './components/Title'
 import Media from './components/Media'
-import Description from './components/content/Description'
+import Description from './components/Content/Description'
 import DropdownContainer from './components/Dropdown/DropdownContainer'
+import StylesCard from './styles/StylesCard'
 
 function Data() {
     // Values related to NASA api
@@ -53,13 +54,13 @@ function Data() {
         <div>
             <DropdownContainer apiYear={apiYear} setApiYear={setApiYear} apiMonth={apiMonth} setApiMonth={setApiMonth} apiDay={apiDay} setApiDay={setApiDay}/>
 
-            <div className='card'>
+            <StylesCard>
                 <Title title={title}/>
                 <div className={(mediaType === 'image') ? 'image-container' : 'video-container'}>
                     <Media mediaUrl={mediaUrl} mediaType={mediaType}/>
                 </div>
                 <Description desc={desc} date={date} origLink={origLink}/>
-            </div>
+            </StylesCard>
         </div>
     )
 }
