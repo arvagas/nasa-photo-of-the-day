@@ -10,15 +10,17 @@ import DropdownContainer from './components/Dropdown/DropdownContainer'
 function Data() {
     // Values related to NASA api
     const nasaApi = 'https://api.nasa.gov/planetary/apod?api_key=cySSy2EuIo1USEmHFXesxMwVk4UhxzDBNvn07ESW'
-    const apiYear = '2012'
-    const apiMonth = '03'
-    const apiDay  = '14'
 
     const [title, setTitle] = useState('Testing')
     const [desc, setDesc] = useState('YADA YADA YADA')
     const [date, setDate] = useState('2019-07-17')
     const [mediaUrl, setMediaUrl] = useState('https://apod.nasa.gov/apod/image/1203/angrysun_friedman_960.jpg')
     const [mediaType, setMediaType] = useState('photo')
+
+    const currentDate = new Date();
+    const [apiYear, setApiYear] = useState(`${currentDate.getFullYear()}`)
+    const [apiMonth, setApiMonth] = useState(`${currentDate.getMonth() + 1}`)
+    const [apiDay, setApiDay] = useState(`${currentDate.getDate()}`)
 
     useEffect(() => {
         axios.get(`${nasaApi}&date=${apiYear}-${apiMonth}-${apiDay}`)
