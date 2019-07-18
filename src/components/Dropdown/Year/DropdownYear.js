@@ -4,7 +4,7 @@ import YearOptions from './YearOptions'
 
 const DropdownYear = ({apiYear, setApiYear}) => {
     return (
-        <select value={apiYear} onChange={event => setApiYear(event.target.value)}>
+        <select value={apiYear} onChange={event => setApiYear(parseInt(event.target.value))}>
             {dropdownyear.map(year=> (
                 <YearOptions year={year} />))
             }

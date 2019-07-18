@@ -3,7 +3,7 @@ import DropdownYear from './Year/DropdownYear'
 import DropdownDay from './Day/DropdownDay'
 import DropdownMonth from './Month/DropdownMonth'
 
-const DropdownContainer = ({apiYear, setApiYear, apiMonth, setApiMonth}) => {  
+const DropdownContainer = ({apiYear, setApiYear, apiMonth, setApiMonth, apiDay, setApiDay}) => {  
     return (
         <div className='dropdown-container'>
             <div className='dropdown-year'>
@@ -18,7 +18,7 @@ const DropdownContainer = ({apiYear, setApiYear, apiMonth, setApiMonth}) => {
 
             <div className='dropdown-day'>
                 <h3>Day</h3>
-                <DropdownDay />
+                <DropdownDay apiDay={apiDay} setApiDay={setApiDay}/>
             </div>
         </div>
     )

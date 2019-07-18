@@ -18,9 +18,9 @@ function Data() {
     const [mediaType, setMediaType] = useState('photo')
 
     const currentDate = new Date();
-    const [apiYear, setApiYear] = useState(`${currentDate.getFullYear()}`)
-    const [apiMonth, setApiMonth] = useState(`${currentDate.getMonth() + 1}`)
-    const [apiDay, setApiDay] = useState(`${currentDate.getDate()}`)
+    const [apiYear, setApiYear] = useState(currentDate.getFullYear())
+    const [apiMonth, setApiMonth] = useState(currentDate.getMonth() + 1)
+    const [apiDay, setApiDay] = useState(currentDate.getDate())
 
     useEffect(() => {
         axios.get(`${nasaApi}&date=${apiYear}-${apiMonth}-${apiDay}`)
@@ -48,7 +48,7 @@ function Data() {
             <Title title={title}/>
             <Media mediaUrl={mediaUrl} mediaType={mediaType}/>
             <Description desc={desc} date={date}/>
-            <DropdownContainer apiYear={apiYear} setApiYear={setApiYear} apiMonth={apiMonth} setApiMonth={setApiMonth}/>
+            <DropdownContainer apiYear={apiYear} setApiYear={setApiYear} apiMonth={apiMonth} setApiMonth={setApiMonth} apiDay={apiDay} setApiDay={setApiDay}/>
         </div>
     )
 }

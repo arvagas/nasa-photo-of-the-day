@@ -4,7 +4,7 @@ import MonthOptions from './MonthOptions'
 
 const DropdownMonth = ({apiMonth, setApiMonth}) => {
     return (
-        <select value={(apiMonth < 10) ? `0${apiMonth}` : apiMonth} onChange={event => setApiMonth(event.target.value)}>
+        <select value={(apiMonth < 10) ? `0${apiMonth}` : apiMonth} onChange={event => setApiMonth(parseInt(event.target.value))}>
             {dropdownmonth.map(month=> (
                 <MonthOptions month={month}/>))
             }
