@@ -1,4 +1,4 @@
-import React, {lazy, Suspense, useEffect} from "react";
+import React, {lazy, Suspense} from "react";
 import "./App.css";
 import circle from './assets/circle.png'
 import useNightMode from './components/Night/useNightMode'

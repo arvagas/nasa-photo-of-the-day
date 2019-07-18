@@ -4,7 +4,7 @@ import axios from 'axios'
 // Import components
 import Control from './components/Control'
 import Title from './components/Title'
-import Media from './components/Media'
+import MediaContainer from './components/Media/MediaContainer'
 import Description from './components/Content/Description'
 import StylesCard from './styles/StylesCard'
 
@@ -17,6 +17,7 @@ function Data({theme, toggleTheme}) {
     const [date, setDate] = useState('????-??-??')
     const [mediaUrl, setMediaUrl] = useState('Image is Loading')
     const [mediaType, setMediaType] = useState('photo')
+    const [copyright, setCopyright] = useState('')
     const [origLink, setOrigLink] = useState('linkdate')
 
     const currentDate = new Date();
@@ -33,12 +34,14 @@ function Data({theme, toggleTheme}) {
                 const nasaDate = response.data.date
                 const nasaMediaUrl = response.data.url
                 const nasaMediaType = response.data.media_type
+                const nasaCopyright = response.data.copyright
 
                 setTitle(nasaTitle)
                 setDesc(nasaDesc)
                 setDate(nasaDate)
                 setMediaUrl(nasaMediaUrl)
                 setMediaType(nasaMediaType)
+                setCopyright(nasaCopyright)
 
                 let shortYear = `${apiYear}`.slice(-2)
                 let ddMonth = (apiMonth < 10) ? `0${apiMonth}` : apiMonth
@@ -59,7 +62,7 @@ function Data({theme, toggleTheme}) {
             }}>
                 <Title title={title}/>
                 <div className={(mediaType === 'image') ? 'image-container' : 'video-container'}>
-                    <Media mediaUrl={mediaUrl} mediaType={mediaType} theme={theme}/>
+                    <MediaContainer mediaUrl={mediaUrl} mediaType={mediaType} copyright={copyright} theme={theme}/>
                 </div>
                 <Description desc={desc} date={date} origLink={origLink}/>
             </StylesCard>
